@@ -15,29 +15,61 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-
-
 <style>
-.head1 { grid-area: header; }
+.head1 { grid-area: header; 
+}
 .main2 { grid-area: main; }
-.right3 { grid-area: right; }
+.right3 {
+  box-sizing: border-box;	
+  grid-area: right;
+  max-width:100%;
+  max-height:100%;
+}
+
 .footer4 { grid-area: footer; }
 .logout5 { grid-area: logout; }
+div.image1{content: url(images/galaxyWor.png);
+		grid-area: image1;
+		}		
+		div.image2{content: url(images/pony.png);
+			grid-area: image2;		
+		}
+		div.image3{content: url(images/sea.jpeg);height: 95% !important;
+			grid-area: image3;
+		}
+		div.image4{content: url(images/stickers.jpeg);height: 95% !important;
+			grid-area: image4;
+		}
+		div.image5{content: url(images/stitch.jpeg);height: 95% !important;
+			grid-area: image5;		
+		}
 
+    div[target] {
+			margin-top:5px;
+			width: 100%;
+			box-sizing: border-box;		
+			height: absolute;
+			text-align: center;			
+			box-shadow: 5px 2px 19px rgb(27, 124, 189);			
+			background-color: #f0f0f0;
+		}
 .grid-container {
   display: grid;
+  max-width: 853px;
   grid-template-areas:
     'header header header header header logout'
     'main main main main main right'
-    'footer footer footer footer footer footer';
+    'main main main main main right'
+    'main main main main main right'
+    'main main main main main right'
+    'main main main main main right'        
+    'image1 image2 image3 image4 image5 image6';
   grid-gap: 3px;
-  background-color: #eaa31e;
   padding: 3px;
 }
 
 .grid-container > div {
-  background-color: rgba(255, 255, 255, 0.8);
+  background-image: url("images/goodBackground.jpg");		  
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
@@ -54,48 +86,52 @@
     height: 375px;
     background-color: #666;
 }
+
+.TakePhoto{  
+  color:white;
+  background-image: url("images/goodBackground.jpg");		    
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 5px 2px 19px rgb(27, 124, 189);			
+}
+.logout5 {
+  box-shadow: 5px 2px 19px rgb(27, 124, 189);			
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.Video {
+  box-shadow: 5px 2px 19px rgb(27, 124, 189);			
+}
 <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
 </style>
 </head>
 <body>
 
 <div class="grid-container">
-  <div class="head1"  style="color: green;"><b>CAMAGRU</b></div>
+  <div class="head1"  style="color: white;	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"><b>CAMAGRU</b></div>
 
   <div class="main2">
-    <div class="camera"><video id="video">Video stream not available.</video><br><button id="startbutton">Take photo</button></div>
-
-
+    <div class="camera"><video class="Video" id="video">Video stream not available.</video><br><button class="TakePhoto" id="startbutton">Take photo</button></div>
   </div>
-  
-  
   <div class="logout5">
-    <a href="index.php?logout='1'" style="color: red; font-size: 20px">Sign out</a>
+    <a href="index.php?logout='1'" style="color: white; font-size: 20px;	font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">Sign out</a>
   </div> 
 
   <div class="right3"><canvas id="canvas"></canvas></div>
-  <div class="footer4" style="color: blue; font-size: 20px;">by mkryukov at 42.org @2019</div>
+  <div target="_" class="image1"></div>
+		<div target="_" class="image2"></div>
+		<div target="_" class="image3"></div>
+		<div target="_" class="image4"></div>
+		<div target="_" class="image5"></div>
+		<div target="_" class="image6"></div>
 </div>
 
 
 <script>
 
 (function() {
-  // The width and height of the captured photo. We will set the
-  // width to the value defined here, but the height will be
-  // calculated based on the aspect ratio of the input stream.
 
   var width = 320;    // We will scale the photo width to this
   var height = 0;     // This will be computed based on the input stream
-
-  // |streaming| indicates whether or not we're currently streaming
-  // video from the camera. Obviously, we start at false.
-
   var streaming = false;
-
-  // The various HTML elements we need to configure or control. These
-  // will be set by the startup() function.
-
   var video = null;
   var canvas = null;
   var photo = null;
@@ -122,7 +158,8 @@
           video.mozSrcObject = stream;
         } else {
           var vendorURL = window.URL || window.webkitURL;
-          video.src = vendorURL.createObjectURL(stream);
+          video.srcObject = stream;
+            video.play();
         }
         video.play();
       },
@@ -134,10 +171,6 @@
     video.addEventListener('canplay', function(ev){
       if (!streaming) {
         height = video.videoHeight / (video.videoWidth/width);
-      
-        // Firefox currently has a bug where the height can't be read from
-        // the video, so we will make assumptions if this happens.
-      
         if (isNaN(height)) {
           height = width / (4/3);
         }
@@ -154,28 +187,9 @@
       takepicture();
       ev.preventDefault();
     }, false);
-    
-    clearphoto();
-  }
 
-  // Fill the photo with an indication that none has been
-  // captured.
-
-  function clearphoto() {
-    var context = canvas.getContext('2d');
-    context.fillStyle = "#AAA";
-    context.fillRect(0, 0, canvas.width, canvas.height);
-
-    var data = canvas.toDataURL('image/png');
-    photo.setAttribute('src', data);
   }
   
-  // Capture a photo by fetching the current contents of the video
-  // and drawing it into a canvas, then converting that to a PNG
-  // format data URL. By drawing it on an offscreen canvas and then
-  // drawing that to the screen, we can change its size and/or apply
-  // other changes before drawing it.
-
   function takepicture() {
     var context = canvas.getContext('2d');
     if (width && height) {
@@ -184,14 +198,8 @@
       context.drawImage(video, 0, 0, width, height);
     
       var data = canvas.toDataURL('image/png');
-      photo.setAttribute('src', data);
-    } else {
-      clearphoto();
-    }
+    } 
   }
-
-  // Set up our event listener to run the startup process
-  // once loading is complete.
   window.addEventListener('load', startup, false);
 })();
 

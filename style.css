@@ -3,27 +3,27 @@
     padding: 0px;
   }
   body {
+    min-width: 400px;         
     font-size: 120%;
-    background: #F8F8FF;
+  background-image: url("images/goodBackground.jpg");		      
   }
  
   .header {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;    
     width: 30%;
     margin: 50px auto 0px;
     color: white;
-    background: #5F9EA0;
     text-align: center;
-    border: 1px solid #B0C4DE;
+    box-shadow: 5px 2px 19px rgb(27, 124, 189);			
     border-bottom: none;
     border-radius: 10px 10px 0px 0px;
     padding: 20px;
   }
   form, .content {
+			box-shadow: 5px 2px 19px rgb(27, 124, 189);			
     width: 30%;
     margin: 0px auto;
     padding: 20px;
-    border: 1px solid #B0C4DE;
-    background: white;
     border-radius: 0px 0px 10px 10px;
   }
   .input-group {
@@ -45,16 +45,16 @@
   .btn {
     padding: 10px;
     font-size: 15px;
-    color: white;
-    background: #5F9EA0;
     border: none;
     border-radius: 5px;
+  background-image: url("images/goodBackground.jpg");		
+  box-shadow: 5px 2px 19px rgb(27, 124, 189);			      
   }
   .error {
     width: 92%; 
     margin: 0px auto; 
     padding: 10px; 
-    border: 1px solid #a94442; 
+    border: 1px solid black; 
     color: #a94442; 
     background: #f2dede; 
     border-radius: 5px; 
@@ -66,6 +66,7 @@
     border: 1px solid #3c763d;
     margin-bottom: 20px;
   }
-
-
+  .container{
+    position: relative;
+  }
   

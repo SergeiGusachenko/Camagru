@@ -7,7 +7,6 @@
     <title>Camagru</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css">
-    <script src="main.js"></script>
 </head>
 <body>
 <div class="header">
@@ -17,19 +16,19 @@
   <form method="post" action="login.php">
   	<?php include('errors.php'); ?>
   	<div class="input-group">
-  		<label>Username</label>
-  		<input type="text" name="username" >
+
+  		<input type="text" name="username" placeholder="Username">
   	</div>
   	<div class="input-group">
-  		<label>Password</label>
-  		<input type="password" name="password">
+  		<input type="password" name="password" placeholder="Password">
   	</div>
   	<div class="input-group">
-  		<button type="submit" class="btn" name="login_user">Login</button>
+  		<button type="submit" class="btn" name="login_user" style="color:white;">Login</button>
   	</div>
   	<p>
-  		Not yet a member? <a href="register.php">Sign up</a>
+  	<a href="register.php" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:white;">Sign up</a>
   	</p>
+	  <a href="forget.php" style="font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color:white;">Forget Password ?</a>
   </form>  
 </body>
 </html>
