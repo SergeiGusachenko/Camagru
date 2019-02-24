@@ -1,4 +1,7 @@
-<?php include('server.php') ?>
+<?php 
+	include('server.php');
+	include('resetpwd.php');
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,14 +21,15 @@
   	<?php include('errors.php'); ?>
   	<div class="input-group">
   		<label>Username</label>
-  		<input type="text" name="username" >
+  		<input type="text" name="username" required>
   	</div>
   	<div class="input-group">
   		<label>Password</label>
-  		<input type="password" name="password">
+  		<input type="pwd" name="pwd">
   	</div>
   	<div class="input-group">
   		<button type="submit" class="btn" name="login_user">Login</button>
+  		<button type="submit" class="btn" name="reset_pwd">Forget Passwort ?</button>
   	</div>
   	<p>
   		Not yet a member? <a href="register.php">Sign up</a>

@@ -1,4 +1,6 @@
-<?php include('server.php') ?>
+<?php include('server.php') ;
+			include('resetpwd.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -22,11 +24,11 @@
   	</div>
   	<div class="input-group">
   	  <label>Password</label>
-  	  <input type="password" name="password_1">
+  	  <input type="pwd" name="pwd_1">
   	</div>
   	<div class="input-group">
   	  <label>Confirm password</label>
-  	  <input type="password" name="password_2">
+  	  <input type="pwd" name="pwd_2">
   	</div>
   	<div class="input-group">
   	  <button type="submit" class="btn" name="reg_user">Register</button>

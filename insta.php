@@ -74,7 +74,7 @@
   </div> 
 
   <div class="right3"><canvas id="canvas"></canvas></div>
-  <div class="footer4" style="color: blue; font-size: 20px;">by mkryukov at 42.org @2019</div>
+  <div class="footer4" style="color: blue; font-size: 20px;">by sgusache @2019</div>
 </div>
 
 
