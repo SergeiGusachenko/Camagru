@@ -20,7 +20,6 @@
     <title>Camagru</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css">
-    <script src="main.js"></script>
 </head>
 <body>
 <div class="header">
@@ -42,9 +41,8 @@
     <!-- logged in user information -->
     <?php  if (isset($_SESSION['username'])) : ?>
     	<p>Welcome <strong><?php echo $_SESSION['username']; ?></strong></p>
-			<p> <a href="index.php?logout='1'" style="color: red;">logout</a> </p>
-			
-			<p> <a href="insta.php" style="color: green;">insta</a> </p>
+			<p><a href="index.php?logout='1'" style="color: red;">logout</a> </p>
+			<p><a href="insta.php" style="color: green;">insta</a> </p>
 
 		<?php endif ?>
 </div>
