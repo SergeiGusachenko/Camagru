@@ -1,12 +1,43 @@
 <?php
 session_start();
-
 // initializing variables
 $username = "";
 $email    = "";
 $errors = array(); 
-
+////
+include 'database.php';
+// CREATE DATABASE
+try {
+        // Connect to Mysql server
+        $dbh = new PDO('mysql:host=localhost;port=8889; dbname = '.$DB_NAME, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "CREATE DATABASE IF NOT EXISTS `".$DB_NAME."`";
+        $dbh->exec($sql);
+        echo "Database created successfully\n";
+    } catch (PDOException $e) {
+        echo "ERROR CREATING DB: \n".$e->getMessage()."\nAborting process\n";
+        exit(-1);
+    }
+// CREATE TABLE USERS
+try {
+        // Connect to DATABASE previously created
+        $dbh = new PDO($DB_DSN, $DB_USER, $DB_PASSWORD);
+        $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        $sql = "CREATE TABLE IF NOT EXISTS `users` (
+          `id` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+          `username` VARCHAR(50) NOT NULL,
+          `email` VARCHAR(100) NOT NULL,
+          `token` VARCHAR(50) NOT NULL,          
+          `pwd` VARCHAR(255) NOT NULL
+        )";
+        $dbh->exec($sql);
+        echo "Table users created successfully\n";
+    } catch (PDOException $e) {
+        echo "ERROR CREATING TABLE: ".$e->getMessage()."\nAborting process\n";
+    }
+////
 // connect to the database
+
 $db = mysqli_connect('localhost', 'root', 'root', 'registration');
 
 // REGISTER USER

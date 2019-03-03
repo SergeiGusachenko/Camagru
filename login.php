@@ -10,7 +10,6 @@
     <title>Camagru</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="style.css">
-    <script src="main.js"></script>
 </head>
 <body>
 <div class="header">
@@ -21,11 +20,11 @@
   	<?php include('errors.php'); ?>
   	<div class="input-group">
   		<label style="color:white;">Username</label>
-  		<input type="text" name="username" required>
+  		<input  style="color:black;" type="text" name="username" required>
   	</div>
   	<div class="input-group" >
   		<label style="color:white;">Password</label>
-  		<input type="pwd" name="pwd">
+  		<input style="color:black;" type="pwd" name="pwd">
   	</div>
   	<div class="input-group">
   		<button type="submit" class="btn" name="login_user" style="color:black;">Login</button>
