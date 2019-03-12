@@ -24,16 +24,16 @@
   	</div>
   	<div class="input-group">
   	  <label style="color:white;">Password</label>
-  	  <input style="color:black;" type="pwd" name="pwd_1" required>
+  	  <input style="color:white;" type="pwd" name="pwd_1" required>
   	</div>
   	<div class="input-group">
   	  <label style="color:white;">Confirm password</label>
-  	  <input style="color:black;" type="pwd" name="pwd_2" required>
+  	  <input style="color:white;" type="pwd" name="pwd_2" required>
   	</div>
   	<div class="input-group">
-  	  <button type="submit" class="btn" style="color:black;" name="reg_user">Register</button>
+  	  <button type="submit" class="btn" style="color:white;" name="reg_user">Register</button>
   	</div>
-  	<p>
+  	<p style="color:white;">
   		Already a member? <a  href="login.php">Sign in</a>
   	</p>
   </form>

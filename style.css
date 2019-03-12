@@ -2,19 +2,20 @@
   box-sizing: border-box;
 }
 
-  body {
-    min-width: 1412px !important;
-    max-height: 1014px !important;
-    
-    font-size: 120%;
-    background-image: url("images/goodBackground.jpg");			
-  }
- 
+body {
+  font-family: 'Major Mono Display', monospace;
+  min-width: 1012px !important;
+  min-height: 814px !important;
+  max-height: 614px !important;
+  font-size: 120%;
+  background-color: black;
+}
   .header {
+    font-family: 'Major Mono Display', monospace;
     width: 30%;
     margin: 50px auto 0px;
     color: white;
-    background-image: url("images/goodBackground.jpg");			
+    background-image: url("images/stars_milky.jpg");			
     text-align: center;
     border-bottom: none;
     border-radius: 10px 10px 0px 0px;
@@ -23,14 +24,15 @@
 
 
   form, .content {
+    font-family: 'Major Mono Display', monospace;
     width: 30%;
     margin: 0px auto;
     padding: 20px;
-    border: 1px solid #B0C4DE;
-    background-image: url("images/goodBackground.jpg");			
+    background-color:black;    
     border-radius: 0px 0px 10px 10px;
   }
   .input-group {
+    
     margin: 10px 0px 10px 0px;
   }
   .input-group label {
@@ -50,10 +52,11 @@
     border: 1px solid gray;
   }
   .btn {
+    font-family: 'Major Mono Display', monospace;
     padding: 10px;
     font-size: 15px;
-    border: 2px solid white;
     border-radius: 5px;
+    background-color:black;    
   }
   .error {
     width: 92%; 

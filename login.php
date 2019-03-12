@@ -27,12 +27,24 @@
   		<input style="color:black;" type="pwd" name="pwd">
   	</div>
   	<div class="input-group">
-  		<button type="submit" class="btn" name="login_user" style="color:black;">Login</button>
-  		<button type="submit" class="btn" name="reset_pwd" style="color:black;">Forget Passwort ?</button>
+  		<button type="submit" class="btn" name="login_user" style="color:white;">Login</button>
+  		<button type="submit" class="btn" name="reset_pwd" style="color:white;">Forget Passwort ?</button>
   	</div>
-  	<p>
+  	<p style="color:white;">
   		Not yet a member? <a href="register.php">Sign up</a>
   	</p>
   </form>  
+  <script>
+  window.addEventListener('keydown',function(e){
+	  const audio = document.querySelector(`audio[data-key="{$e.keyCode}"]`);
+	  const key   = document.querySelector(`.key[data-key="{$key.code}"]`)
+	  audio.play();
+	  key.classList.add('playing');
+	  key.classList.triggle('playing');
+
+	console.log(audio);
+
+  });
+  </script>
 </body>
 </html>
